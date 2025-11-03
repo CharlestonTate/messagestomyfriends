@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message for Jackson</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: white;
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .message-line {
+            margin: 30px 0;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .message-line.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 768px) {
+            .message-line {
+                margin: 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="message-line" id="line1">
+            hey jackson
+        </div>
+        
+        <div class="message-line" id="line2">
+            this is tate
+        </div>
+        
+        <div class="message-line" id="line3">
+            even when nobody else sees you doing a good job
+        </div>
+        
+        <div class="message-line" id="line4">
+            I see you doing a good job
+        </div>
+        
+        <div class="message-line" id="line5">
+            keep it up man.
+        </div>
+        
+        <div class="message-line" id="line6">
+            -t8
+        </div>
+    </div>
+    
+    <script>
+        // Sequential fade-down animation
+        const delays = [0, 2000, 4000, 6000, 8000, 10000];
+        
+        delays.forEach((delay, index) => {
+            setTimeout(() => {
+                const line = document.getElementById(`line${index + 1}`);
+                line.classList.add('show');
+            }, delay);
+        });
+    </script>
+</body>
+</html>
+
